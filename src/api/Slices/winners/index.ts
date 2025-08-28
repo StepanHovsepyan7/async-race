@@ -1,6 +1,6 @@
 import ApiSlice from "@/api/slice";
-import { GetWinnersResponse, Winner } from "@/api/slices/winners/entity";
-import type { GetWinnersParams } from "@/api/slices/winners/types";
+import { GetWinnersResponse, Winner } from "@/api/Slices/winners/entity";
+import type { GetWinnersParams } from "@/api/Slices/winners/types";
 import type { FailedResponse, SuccessResponse } from "@/api/types";
 
 export default class WinnersSlice extends ApiSlice {

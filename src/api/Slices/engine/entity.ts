@@ -1,4 +1,4 @@
-import { EngineStatus } from "@/api/slices/engine/types";
+import { EngineStatus } from "@/api/Slices/engine/types";
 
 const DEFAULT_VELOCITY = 0;
 const DEFAULT_DISTANCE = 0;

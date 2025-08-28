@@ -1,5 +1,5 @@
-import { EngineResponse } from "@/api/slices/engine/entity";
-import { CarCondition } from "@/api/slices/garage/types";
+import { EngineResponse } from "@/api/Slices/engine/entity";
+import { CarCondition } from "@/api/Slices/garage/types";
 
 const WITHOUT_ID = -1;
 const DEFAULT_POSITION = 0;

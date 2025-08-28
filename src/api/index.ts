@@ -1,7 +1,7 @@
 import ApiSlice from "@/api/slice";
-import EngineSlice from "@/api/slices/engine";
-import GarageSlice from "@/api/slices/garage";
-import WinnersSlice from "@/api/slices/winners";
+import EngineSlice from "@/api/Slices/engine";
+import GarageSlice from "@/api/Slices/garage";
+import WinnersSlice from "@/api/Slices/winners";
 
 class Api extends ApiSlice {
   static garage = GarageSlice;

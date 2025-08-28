@@ -1,5 +1,5 @@
 import ApiSlice from "@/api/slice";
-import { Car, GetCarsResponse } from "@/api/slices/garage/entity";
+import { Car, GetCarsResponse } from "@/api/Slices/garage/entity";
 import { FailedResponse, SuccessResponse } from "@/api/types";
 
 export default class GarageSlice extends ApiSlice {

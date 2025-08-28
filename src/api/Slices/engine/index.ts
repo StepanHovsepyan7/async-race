@@ -1,6 +1,6 @@
 import ApiSlice from "@/api/slice";
-import { EngineResponse } from "@/api/slices/engine/entity";
-import { EngineStatus } from "@/api/slices/engine/types";
+import { EngineResponse } from "@/api/Slices/engine/entity";
+import { EngineStatus } from "@/api/Slices/engine/types";
 import { FailedResponse, SuccessResponse } from "@/api/types";
 
 export default class EngineSlice extends ApiSlice {
