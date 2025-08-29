@@ -94,7 +94,7 @@ export default class ApiSlice {
           message: rsp.meta.error.message
         });
       }
-    }, [...(params || [])]);
+    }, [...(params || [])]); // eslint-disable-next-line react-hooks/exhaustive-deps
     const reload = useCallback(() => getData(), [getData]);
     useEffect(() => {
       getData();
