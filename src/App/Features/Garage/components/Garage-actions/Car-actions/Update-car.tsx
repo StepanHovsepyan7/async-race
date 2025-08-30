@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
-import useGarageStore from "../../Store/Usa-garage-store";
+import useGarageStore from "../../../Store/Usa-garage-store";
 import Button from "@/common/components/Button/Button";
+import useManageGarageActions from "../../../Hooks/Use-manage-garage-actions.hook";
 import ActionsForm from "./Actions-form";
-import useManageGarageActions from "../../Hooks/Use-manage-garage-actions.hook";
 
 
 interface Props {

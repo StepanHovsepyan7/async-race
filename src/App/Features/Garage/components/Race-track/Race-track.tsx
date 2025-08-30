@@ -1,5 +1,5 @@
 import useCars from "../../Hooks/Use-cars-hook";
-import CarActions from "../Car-actions/Car-actions";
+import CarActions from "../Garage-actions/Car-actions/Car-actions";
 import Track from "./Track";
 
 function RaceTrack() {
@@ -17,7 +17,6 @@ function RaceTrack() {
         return(
           <CarActions id={car.id} key={car.id} engineStatus={car.engine.status}>
             <div>
-             
               {car.name}
             </div>
           </CarActions>
