@@ -1,6 +1,6 @@
-import { EngineStatus } from "@/api/Slices/engine/types";
+import { EngineStatus } from "../../../../api/Slices/engine/types";
 import useGarageStore from "../Store/Usa-garage-store";
-import { CarCondition } from "@/api/Slices/garage/types";
+import { CarCondition } from "../../../../api/Slices/garage/types";
 import { RaceType } from "../Store/Use-winner-store";
 import { useCallback } from "react";
 

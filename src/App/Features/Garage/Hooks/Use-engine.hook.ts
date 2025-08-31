@@ -1,9 +1,9 @@
 
 import { useCallback, useState } from "react";
 import useGarageStore from "../Store/Usa-garage-store";
-import { CarCondition } from "@/api/Slices/garage/types";
+import { CarCondition } from "../../../../api/Slices/garage/types";
 import useEngineResponse from "./Use-engine-response.hook";
-import { EngineStatus } from "@/api/Slices/engine/types";
+import { EngineStatus } from "../../../../api/Slices/engine/types";
 
 export function useEngineActions() {
   const { patchCarEngine, patchEngineStatus } = useEngineResponse();

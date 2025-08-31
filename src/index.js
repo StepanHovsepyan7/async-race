@@ -12,10 +12,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout/>}>
-         <Route path="/" element={<App />} />
-          <Route path="/" element={<Garage />} />
-          <Route path="/winners" element={<Winners />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Garage />} />
+          <Route path="winners" element={<Winners />} />
+          <Route path="app" element={<App />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -7,11 +7,10 @@ export const metadata = {
   description: "Async Race Task"
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout() {
   return (
     <div>
       <Header />
-      {children}
       <Outlet />
       <div id="modal-portal" />
     </div>

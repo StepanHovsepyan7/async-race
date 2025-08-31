@@ -1,10 +1,12 @@
 import React from "react";
+import RaceControlPanel from "../Features/Garage/components/race-control-panel";
+import RaceTrack from "../Features/Garage/components/Race-track/Race-track";
 
 const Garage = () => {
   return (
     <div>
-      <h2>Garage Page</h2>
-      
+      <RaceControlPanel />
+      <RaceTrack />
     </div>
   );
 };

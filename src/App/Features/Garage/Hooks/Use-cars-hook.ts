@@ -59,7 +59,6 @@ export default function useCars() {
       setHasInitializedStore(true);
     }
     if (hasInitializedStore && !cars[activePage]?.length) {
-      // request made
       getCars(activePage);
     }
   }, [getCars, cars, hasInitializedStore, activePage]);

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import useCars from "./Use-cars-hook";
 import useGarageActions from "./Use-garage-actions";
-import { carModels } from "@/lib/constants";
+import { carModels } from "../../../../lib/constants";
 
 
 export default function useGenerateCars() {

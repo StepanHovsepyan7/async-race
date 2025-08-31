@@ -1,5 +1,5 @@
-import Api from "@/api";
-import { EngineStatus } from "@/api/Slices/engine/types";
+import Api from "../../../../api";
+import { EngineStatus } from "../../../../api/Slices/engine/types";
 import { useCallback } from "react";
 import { Callbacks } from "./Use-cars-response.hook";
 

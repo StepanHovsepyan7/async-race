@@ -1,10 +1,10 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from "react";
 import useGarageStore from "../../../Store/Usa-garage-store";
-import { EngineStatus } from "@/api/Slices/engine/types";
-import IconButton from "@/common/components/Button/Icon-Button";
+import { EngineStatus } from "../../../../../../api/Slices/engine/types";
+import IconButton from "../../../../../../common/components/Button/Icon-Button";
 import UpdateCar from "./Update-car";
 import RemoveCar from "./Remove-car";
-import Modal from "@/common/components/Modal/Modal";
+import Modal from "../../../../../../common/components/Modal/Modal";
 type ModalType = "update" | "delete";
 interface Props{
     id:number;

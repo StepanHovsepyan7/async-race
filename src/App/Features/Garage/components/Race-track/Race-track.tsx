@@ -1,37 +1,51 @@
+import { useMemo } from "react";
 import useCars from "../../Hooks/Use-cars-hook";
 import Car from "../Car/Car";
 import GarageActions from "../Garage-actions/Garage-actions";
-import Track from "./Track";
+import RaceLine from "./Race-line";
+import WinnerModal from "../../../../../App/Features/Winner/components/Modal/Winner-modal";
+import Modal from "../../../../../common/components/Modal/Modal";
+import Pagination from "../../../../..//common/components/Pagination/Pagination";
+import useAnnounceWinner from "../../Hooks/Use-announce-winner.hook";
+import Loading from "../../../../../common/components/Loading-indicator/Loading";
 
 
 
 
-function RaceTrack() {
-  const { cars, loading } = useCars();
+const RaceTrack = () => {
+  const { cars, loading, setActivePage, activePage, carsCount, pagesLength } = useCars();
+  const { announceWinner, raceType, raceWinnerId, setShowWinner, showWinner, getWinner } = useAnnounceWinner();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const showPagination = pagesLength > 1;
+
+  const winnerCarName = cars?.find(car => car.id === raceWinnerId)?.name;
+  const winnerCarTime = useMemo(() => (raceWinnerId ? getWinner(raceWinnerId)?.time : ""), [getWinner, raceWinnerId])?.toString();
+
+  const openWinnerModal = showWinner && !!raceWinnerId;
 
   return (
-    <div className="w-full">
-      {cars.map(car => (
-        <Track key={car.id}>
-          <GarageActions id={car.id} engineStatus={car.engine.status}>
-            <div className="w-full relative">
-              <div className="absolute left-[200px] z-10">{car.condition}</div>
-              <Car
-                car={car}
-                winnerId={null}
-                announceWinner={() => {}}
-                raceType={null}
-              />
-            </div>
-          </GarageActions>
-        </Track>
-      ))}
+    <div className="px-10">
+      <div className="space-y-2 min-h-[400px] flex flex-col items-center justify-center w-full">
+        {loading ? (
+          <Loading size={60} />
+        ) : (
+          cars?.map(car => (
+            <GarageActions key={`track-${car.id}`} id={car.id} engineStatus={car.engine.status}>
+              <RaceLine condition={car.condition} name={car.name}>
+                <Car car={car} announceWinner={announceWinner} winnerId={raceWinnerId} raceType={raceType} />
+              </RaceLine>
+            </GarageActions>
+          ))
+        )}
+      </div>
+      <Modal isOpen={openWinnerModal}>
+        <WinnerModal name={winnerCarName!} time={winnerCarTime || ""} onClose={() => setShowWinner(false)} />
+      </Modal>
+      {showPagination && (
+        <Pagination onPageChange={setActivePage} carsCount={carsCount} page={activePage} pagesLength={pagesLength} />
+      )}
     </div>
   );
-}
+};
 
 export default RaceTrack;

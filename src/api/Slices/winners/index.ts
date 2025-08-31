@@ -1,7 +1,7 @@
-import ApiSlice from "@/api/slice";
-import { GetWinnersResponse, Winner } from "@/api/Slices/winners/entity";
-import type { GetWinnersParams } from "@/api/Slices/winners/types";
-import type { FailedResponse, SuccessResponse } from "@/api/types";
+import ApiSlice from "../../slice";
+import { GetWinnersResponse, Winner } from "./entity";
+import type { GetWinnersParams } from "./types";
+import type { FailedResponse, SuccessResponse } from "../../types";
 
 export default class WinnersSlice extends ApiSlice {
   static baseURL = ApiSlice.baseURL + "/winners";

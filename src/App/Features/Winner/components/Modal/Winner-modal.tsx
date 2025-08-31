@@ -1,26 +1,20 @@
-import useGarageStore from "@/App/Features/Garage/Store/Usa-garage-store";
-import useWinnerStore from "@/App/Features/Garage/Store/Use-winner-store";
-import Button from "@/common/components/Button/Button";
+
+import Button from "../../../../../common/components/Button/Button";
 
 interface Props {
-  id: number;
+  time: string;
+  name: string;
   onClose: () => void;
 }
-function WinnerModal({ id, onClose }: Props) {
-  const { winner } = useWinnerStore(state => ({
-    winner: state.getWinner(id)
-  }));
-
-  const { car } = useGarageStore(state => ({
-    car: state.getCar(id)
-  }));
-
+function WinnerModal({ name, time, onClose }: Props) {
   return (
-    <div className="bg-white rounded-2xl p-4">
-      <h1>WINNER</h1>
-      <p>{car?.name}</p>
-      <p>{winner?.time}</p>
-      <Button onClick={onClose}>Close</Button>
+    <div className="relative bg-white w-[400px] flex items-center justify-center rounded-2xl p-6 backdrop-blur-md shadow-neon border-4 border-neon-green">
+      <div className="flex items-center justify-center flex-col">
+        <h1 className="text-[40px] font-bold">WINNER</h1>
+        <p className="text-[32px] font-semibold text-gray-700">{name}</p>
+        <p>{time} sec</p>
+        <Button onClick={onClose}>Close</Button>
+      </div>
     </div>
   );
 }

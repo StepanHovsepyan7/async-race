@@ -1,8 +1,8 @@
-import { CarCondition } from "@/api/Slices/garage/types";
+import { CarCondition } from "../../../../../api/Slices/garage/types";
 import { RaceType } from "../../Store/Use-winner-store";
 import CarIcon from "./Car-icon";
 import useCarAnimation from "../../Hooks/Use-car-animation";
-import { Car as CarEntity } from "@/api/Slices/garage/entity";
+import { Car as CarEntity } from "../../../../../api/Slices/garage/entity";
 import { useManageCar } from "../../Hooks/Use-manage-car.hook";
 
 interface Props {

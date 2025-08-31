@@ -1,5 +1,5 @@
-import { EngineStatus } from "@/api/Slices/engine/types";
-import IconButton from "@/common/components/Button/Icon-Button";
+import { EngineStatus } from "../../../../../../api/Slices/engine/types";
+import IconButton from "../../../../../../common/components/Button/Icon-Button";
 import { useEngineActions } from "../../../Hooks/Use-engine.hook";
 import useGarageStore from "../../../Store/Usa-garage-store";
 import useWinnerStore, { RaceType } from "../../../Store/Use-winner-store";
