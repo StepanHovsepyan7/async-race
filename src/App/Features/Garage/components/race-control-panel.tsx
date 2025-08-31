@@ -5,6 +5,8 @@ import Modal from "@/common/components/Modal/Modal";
 import { useBoolean } from "@/common/Hooks/Index.hook";
 import React, { useCallback } from "react";
 import useGenerateCars from "../Hooks/Use-generate-cars.hook";
+import CreateCar from "./Garage-actions/Car-actions/Create-car";
+import useManageRace from "../Hooks/Use-manage-race.hook";
 
 function RaceControlPanel() {
   const { canReset, handleAllCarsEngineActions, raceType, resetCars } = useManageRace();
