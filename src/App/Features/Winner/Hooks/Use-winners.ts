@@ -1,8 +1,8 @@
-import Api from "@/api";
+import Api from "../../../../api";
 import { GetWinnersParams } from "@/api/Slices/winners/types";
 import { useCallback } from "react";
-import { Callbacks } from "../../Garage/Hooks/Use-cars-response.hook";
-import { Winner } from "@/api/Slices/winners/entity";
+import { Winner } from "../../../../api/Slices/winners/entity";
+import { Callbacks } from "../../../../common/types";
 
 
 export default function useWinners() {

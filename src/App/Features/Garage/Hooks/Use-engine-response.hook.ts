@@ -1,7 +1,7 @@
 import Api from "../../../../api";
 import { EngineStatus } from "../../../../api/Slices/engine/types";
+import { Callbacks } from "../../../../common/types";
 import { useCallback } from "react";
-import { Callbacks } from "./Use-cars-response.hook";
 
 export default function useEngineResponse() {
   const patchCarEngine = useCallback(

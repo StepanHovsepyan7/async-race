@@ -1,4 +1,4 @@
-import { headValues } from "@/lib/constants";
+import { headValues } from "../../../../../lib/constants";
 import React from "react";
 
 const TableHead = () => {

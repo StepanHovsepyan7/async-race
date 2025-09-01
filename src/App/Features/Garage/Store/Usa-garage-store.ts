@@ -71,16 +71,19 @@ const useGarageStore = create<GarageStoreState & GarageStoreAction>()(
           }
         }));
       },
-      updateCarStatus({ id, status }) {
-        set(state => ({
-          cars: {
-            ...state.cars,
-            [state.activePage]: state.cars[state.activePage].map(c =>
-              c.id === id ? { ...c, engine: { ...c.engine, status } } : c
-            )
-          }
-        }));
-      },
+     updateCarStatus({ id, status }) {
+  set((state) => ({
+    cars: {
+      ...state.cars,
+      [state.activePage]: state.cars[state.activePage].map((c) =>
+        c.id === id
+          ? { ...c, engine: { ...(c.engine ?? { velocity: 0 }), status } }
+          : c
+      ),
+    },
+  }));
+},
+
       resetCars() {
         set(state => ({
           cars: {

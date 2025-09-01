@@ -1,8 +1,8 @@
-import { useCallback } from "react";
-import useCars from "./Use-cars-hook";
-import useGarageActions from "./Use-garage-actions";
-import { carModels } from "../../../../lib/constants";
 
+import { carModels } from "../../../../lib/constants";
+import { useCallback } from "react";
+import useGarageActions from "./Use-garage-actions";
+import useCars from "./Use-cars-hook";
 
 export default function useGenerateCars() {
   const cars = generateRandomCars();
@@ -27,9 +27,6 @@ export default function useGenerateCars() {
 
   return { generateCars };
 }
-
-
-
 
 const getRandomCarName = (): string => {
   return carModels[Math.floor(Math.random() * carModels.length)];

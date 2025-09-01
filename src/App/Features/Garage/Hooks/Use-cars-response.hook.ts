@@ -1,11 +1,6 @@
 import Api from "../../../../api";
+import { Callbacks } from "../../../../common/types";
 import { useCallback } from "react";
-
-
-export interface Callbacks {
-  beforeAPICall?: () => void;
-  afterAPICall?: () => void;
-}
 
 export function useCarsResponse() {
   const getCarsResponse = useCallback(
@@ -27,8 +22,7 @@ export function useCarsResponse() {
     []
   );
 
-
-    const getCarResponse = useCallback(async ({ id, callbacks }: { id: number; callbacks: Callbacks }) => {
+  const getCarResponse = useCallback(async ({ id, callbacks }: { id: number; callbacks: Callbacks }) => {
     callbacks.beforeAPICall?.();
     const rsp = await Api.garage.GetCar({ id });
     callbacks.afterAPICall?.();
@@ -46,5 +40,4 @@ export function useCarsResponse() {
   }, []);
 
   return { getCarsResponse, getCarResponse };
-
 }

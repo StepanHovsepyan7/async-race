@@ -1,6 +1,6 @@
 import Api from "../../../../api";
+import { Callbacks } from "../../../../common/types";
 import { useCallback } from "react";
-import { Callbacks } from "./Use-cars-response.hook";
 
 export default function useGarageActions() {
   const createCar = useCallback(async ({ name, color, callbacks }: { name: string; color: string; callbacks?: Callbacks }) => {

@@ -14,6 +14,7 @@ type UseApi<T> = {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 export default class ApiSlice {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   static baseURL: string = API_URL;
 
   static async request<T = unknown>(
@@ -50,7 +51,9 @@ export default class ApiSlice {
           status: rsp.status
         }
       };
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
+      // eslint-disable-next-line no-console
       console.log(
         "Request Error",
         (err as AxiosError<ResponseModel<T>>).response ? JSON.stringify(err.response) : JSON.stringify(err)
@@ -94,7 +97,8 @@ export default class ApiSlice {
           message: rsp.meta.error.message
         });
       }
-    }, [...(params || [])]); // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [...(params || [])]);
     const reload = useCallback(() => getData(), [getData]);
     useEffect(() => {
       getData();

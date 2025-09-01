@@ -1,9 +1,9 @@
-import Loading from "@/common/components/Loading-indicator/Loading";
+import Loading from "../../../../..//common/components/Loading-indicator/Loading";
 import useCars from "../../../../../App/Features/Garage/Hooks/Use-cars-hook";
 import { WinnerWithCarId } from "../../../../../App/Features/Garage/Store/Use-winner-store";
 import { useCallback } from "react";
 import useWinnersTable from "../../Hooks/Use-winners-table.hook";
-import { mergeAndSumWins } from "@/lib";
+import { mergeAndSumWins } from "../../../../../lib";
 import Table from "./Table";
 
 

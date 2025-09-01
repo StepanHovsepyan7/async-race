@@ -1,3 +1,7 @@
-export default function Home() {
-  return <div>winner</div>;
+import WinnerTable from "../Features/Winner/components/Winner-table/Winner-table";
+
+export default function Winners() {
+  return <div>
+    <WinnerTable />
+  </div>;
 }

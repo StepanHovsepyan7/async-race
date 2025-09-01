@@ -1,8 +1,9 @@
-import { EngineStatus } from "../../../../api/Slices/engine/types";
-import useGarageStore from "../Store/Usa-garage-store";
 import { CarCondition } from "../../../../api/Slices/garage/types";
-import { RaceType } from "../Store/Use-winner-store";
 import { useCallback } from "react";
+import useGarageStore from "../Store/Usa-garage-store";
+import { EngineStatus } from "../../../../api/Slices/engine/types";
+import { RaceType } from "../Store/Use-winner-store";
+import useWinnerAction from "../../Winner/Hooks/use-winner-action";
 
 
 interface Props {
@@ -19,7 +20,7 @@ export function useManageCar({ id, winnerId, announceWinner, raceType }: Props) 
     updateCarCondition: (condition: CarCondition) => store.updateCar({ id, car: { condition } })
   }));
 
-  // const { handleWinnerAction } = useWinnerAction();
+  const { handleWinnerAction } = useWinnerAction();
 
   const carReachTheEnd = async (position: number, time: number) => {
     updateCarPosition({
@@ -31,8 +32,8 @@ export function useManageCar({ id, winnerId, announceWinner, raceType }: Props) 
       status: EngineStatus.stopped
     });
     if (!winnerId) {
-      // await handleWinnerAction({ id, time });
-      if (raceType === "multi") {
+      await handleWinnerAction({ id, time });
+      if (raceType == "multi") {
         announceWinner(id);
       }
     }

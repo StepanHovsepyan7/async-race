@@ -1,4 +1,3 @@
-
 import React, { PropsWithChildren } from "react";
 import CarActions from "./Car-actions/Car-actions";
 import RaceActions from "./Race-actions/Race-actions";
@@ -12,7 +11,7 @@ function GarageActions({ id, children }: PropsWithChildren<Props>) {
   return (
     <div className="flex flex-row space-x-4 items-center w-full h-[100px] rounded-xl overflow-hidden">
       <div>
-        <CarActions id={id} engineStatus=""/>
+        <CarActions id={id} />
       </div>
       <div>
         <RaceActions id={id} />
