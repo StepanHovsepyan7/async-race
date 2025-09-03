@@ -1,5 +1,5 @@
 import './App.css';
-import RaceControlPanel from './App/Features/Garage/components/race-control-panel';
+import RaceControlPanel from './App/Features/Garage/components/Race-control-panel/race-control-panel';
 import RaceTrack from './App/Features/Garage/components/Race-track/Race-track';
 
 

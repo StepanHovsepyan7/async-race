@@ -33,7 +33,7 @@ export function useManageCar({ id, winnerId, announceWinner, raceType }: Props) 
     });
     if (!winnerId) {
       await handleWinnerAction({ id, time });
-      if (raceType == "multi") {
+      if (raceType === "multi") {
         announceWinner(id);
       }
     }

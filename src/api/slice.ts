@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import axios, { AxiosError, Method } from "axios";
 import { useCallback, useEffect, useState } from "react";
-import type { FailedResponse, RequestOptions, ResponseModel } from "@/api/types";
+import type { FailedResponse, RequestOptions, ResponseModel } from "../api/types";
+
 
 type UseApiError = { code: number; message: string };
 type UseApi<T> = {
@@ -12,7 +13,7 @@ type UseApi<T> = {
   success: boolean;
 };
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_URL = process.env.REACT_APP_API_URL || "";
 export default class ApiSlice {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   static baseURL: string = API_URL;

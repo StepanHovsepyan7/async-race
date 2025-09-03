@@ -5,12 +5,9 @@ import GarageActions from "../Garage-actions/Garage-actions";
 import RaceLine from "./Race-line";
 import WinnerModal from "../../../../../App/Features/Winner/components/Modal/Winner-modal";
 import Modal from "../../../../../common/components/Modal/Modal";
-import Pagination from "../../../../..//common/components/Pagination/Pagination";
+import Pagination from "../../../../../common/components/Pagination/Pagination";
 import useAnnounceWinner from "../../Hooks/Use-announce-winner.hook";
 import Loading from "../../../../../common/components/Loading-indicator/Loading";
-
-
-
 
 const RaceTrack = () => {
   const { cars, loading, setActivePage, activePage, carsCount, pagesLength } = useCars();
@@ -18,8 +15,12 @@ const RaceTrack = () => {
 
   const showPagination = pagesLength > 1;
 
-  const winnerCarName = cars?.find(car => car.id === raceWinnerId)?.name;
-  const winnerCarTime = useMemo(() => (raceWinnerId ? getWinner(raceWinnerId)?.time : ""), [getWinner, raceWinnerId])?.toString();
+  const winnerCarName = cars?.find(car => car.id === raceWinnerId)?.name ?? "";
+  const winnerCarTime = useMemo(() => {
+    if (!raceWinnerId) return "";
+    const winner = getWinner(raceWinnerId);
+    return winner?.time?.toString() ?? "";
+  }, [getWinner, raceWinnerId]);
 
   const openWinnerModal = showWinner && !!raceWinnerId;
 
@@ -30,19 +31,39 @@ const RaceTrack = () => {
           <Loading size={60} />
         ) : (
           cars?.map(car => (
-            <GarageActions key={`track-${car.id}`} id={car.id} engineStatus={car.engine.status}>
-              <RaceLine condition={car.condition} name={car.name}>
-                <Car car={car} announceWinner={announceWinner} winnerId={raceWinnerId} raceType={raceType} />
+            <GarageActions
+              key={`track-${car.id}`}
+              id={car.id}
+              engineStatus={car.engine?.status ?? "stopped"}
+            >
+              <RaceLine condition={car.condition ?? "idle"} name={car.name ?? "Unknown"}>
+                <Car
+                  car={car}
+                  announceWinner={announceWinner}
+                  winnerId={raceWinnerId}
+                  raceType={raceType}
+                />
               </RaceLine>
             </GarageActions>
           ))
         )}
       </div>
+
       <Modal isOpen={openWinnerModal}>
-        <WinnerModal name={winnerCarName!} time={winnerCarTime || ""} onClose={() => setShowWinner(false)} />
+        <WinnerModal
+          name={winnerCarName}
+          time={winnerCarTime}
+          onClose={() => setShowWinner(false)}
+        />
       </Modal>
+
       {showPagination && (
-        <Pagination onPageChange={setActivePage} carsCount={carsCount} page={activePage} pagesLength={pagesLength} />
+        <Pagination
+          onPageChange={setActivePage}
+          carsCount={carsCount}
+          page={activePage}
+          pagesLength={pagesLength}
+        />
       )}
     </div>
   );

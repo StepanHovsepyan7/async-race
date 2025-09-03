@@ -1,7 +1,10 @@
-import ApiSlice from "../../slice";
+import ApiSlice from "../../../api/slice";
+import { FailedResponse, SuccessResponse } from "../../../api/types";
 import { EngineResponse } from "./entity";
 import { EngineStatus } from "./types";
-import { FailedResponse, SuccessResponse } from "../../types";
+
+
+
 
 export default class EngineSlice extends ApiSlice {
   static baseURL = ApiSlice.baseURL + "/engine";
@@ -30,5 +33,3 @@ export default class EngineSlice extends ApiSlice {
     return rsp as SuccessResponse;
   }
 }
-
-

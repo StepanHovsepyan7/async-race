@@ -15,7 +15,11 @@ interface Props {
 function CarActions({ id }: Props) {
   const [modalType, setModalType] = useState<Modal | null>(null);
   const car = useGarageStore(state => state.getCar(id));
-  const disableActions = !car || car.engine.status !== EngineStatus.stopped || car.position !== 0;
+const disableActions =
+  !car ||
+  (car.engine?.status ?? EngineStatus.stopped) !== EngineStatus.stopped || // null -> stopped
+  (car.position ?? 0) !== 0; // null -> 0
+
   const handleAction = useCallback(
     (type: Modal) => {
       if (id) {

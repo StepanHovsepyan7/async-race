@@ -1,6 +1,6 @@
-import ApiSlice from "../../slice";
+import ApiSlice from "../../../api/slice";
+import { FailedResponse, SuccessResponse } from "@/api/types";
 import { Car, GetCarsResponse } from "./entity";
-import { FailedResponse, SuccessResponse } from "../../types";
 
 export default class GarageSlice extends ApiSlice {
   static baseURL = ApiSlice.baseURL + "/garage";

@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import App from './App';
-import './index.css';
-import Layout from './Layout';
-import Garage from './App/Garage/Page';
-import Winners from './App/Winners/Page';
+import "./index.css";
+import Layout from "./Layout";
+import Garage from "./App/Garage/Page";
+import Winners from "./App/Winners/Page";
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -14,10 +14,9 @@ ReactDOM.render(
         <Route path="/" element={<Layout />}>
           <Route index element={<Garage />} />
           <Route path="winners" element={<Winners />} />
-          <Route path="app" element={<App />} />
         </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
