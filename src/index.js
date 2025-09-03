@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./index.css";
+import "./App.css";
 import Layout from "./Layout";
 import Garage from "./App/Garage/Page";
 import Winners from "./App/Winners/Page";

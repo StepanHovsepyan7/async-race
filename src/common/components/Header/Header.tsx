@@ -8,7 +8,7 @@ function Header() {
   const push = useNavigate();
 
   return (
-    <div className="h-[20vh] px-16 py-6 flex flex-row items-center w-full bg-orange-500 border-b border-black ">
+    <div className="h-[20vh] px-16 py-6 flex flex-row items-center w-full bg-[#FF1E1E] border-b border-black ">
       <div className="flex flex-col space-y-4">
         <Button onClick={() => push("/")} icon="garage">
           Garage

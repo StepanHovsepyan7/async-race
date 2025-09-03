@@ -25,7 +25,7 @@ function Pagination({ onPageChange, carsCount, page, pagesLength }: Props) {
         <div className="p-4 space-x-6 flex flex-row items-center">
           <IconButton icon="prev" iconSize={24} onClick={handlePrevClick} />
           <div>
-            <h1 className="text-lg font-semibold">
+            <h1 className="text-lg font-semibold text-white">
               {page} / {pagesLength}
             </h1>
           </div>
@@ -33,7 +33,7 @@ function Pagination({ onPageChange, carsCount, page, pagesLength }: Props) {
         </div>
       </div>
       <div className="flex flex-row justify-center mt-4">
-        <h1 className="text-xl font-bold">{carsCount} cars in total</h1>
+        <h1 className="text-xl font-bold text-white">{carsCount} cars in total</h1>
       </div>
     </div>
   );

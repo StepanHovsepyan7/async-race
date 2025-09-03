@@ -21,8 +21,8 @@ function RaceControlPanel() {
   }, [resetCars]);
 
   return (
-    <div className="flex flex-row py-4 items-center px-16">
-      <div className="flex flex-row space-x-6">
+    <div className="flex flex-row flex-wrap py-4 items-center px-16">
+      <div className="flex flex-row flex-wrap space-x-6">
         <div>
           <Button  icon="start-race" onClick={startRace}>
             Start Race
@@ -39,7 +39,7 @@ function RaceControlPanel() {
           </Button>
         </div>
       </div>
-      <div className="flex flex-1 flex-row items-center justify-end">
+      <div className="flex flex-1 flex-row flex-wrap items-center justify-end">
         <div>
           <Button onClick={generateCars}  icon="random">
             Generate Cars
