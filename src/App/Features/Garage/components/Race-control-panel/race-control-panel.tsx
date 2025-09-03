@@ -24,12 +24,12 @@ function RaceControlPanel() {
     <div className="flex flex-row py-4 items-center px-16">
       <div className="flex flex-row space-x-6">
         <div>
-          <Button disabled={!!raceType} icon="start-race" onClick={startRace}>
+          <Button  icon="start-race" onClick={startRace}>
             Start Race
           </Button>
         </div>
         <div>
-          <Button onClick={resetRace} disabled={!canReset} icon="reset">
+          <Button onClick={resetRace}  icon="reset">
             Reset
           </Button>
         </div>
@@ -41,7 +41,7 @@ function RaceControlPanel() {
       </div>
       <div className="flex flex-1 flex-row items-center justify-end">
         <div>
-          <Button onClick={generateCars} disabled={!!raceType} icon="random">
+          <Button onClick={generateCars}  icon="random">
             Generate Cars
           </Button>
         </div>

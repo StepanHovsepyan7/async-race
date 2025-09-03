@@ -10,7 +10,7 @@ export const ICONS = {
   edit: "/Icons/edit.svg",
   start: "/Icons/start-single-race.svg",
   stop: "/Icons/stop-race.svg",
-  next: "/icons/next.svg",
+  next: "/Icons/next.svg",
   prev: "/Icons/prev.svg",
   create: "/Icons/create.svg",
   car: "/Icons/car.svg"
