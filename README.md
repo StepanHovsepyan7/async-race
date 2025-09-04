@@ -89,7 +89,7 @@ It allows users to:
  ESLint setup (5)
 
 
-Clone and run the Front-end from the repository run on http://localhost:3001:  
+Clone and run the Front-end from the repository run on http://localhost:3001 or http://127.0.0.1:3001/:  
 ```bash
 git clone https://github.com/StepanHovsepyan7/async-race.git
 cd async-race
