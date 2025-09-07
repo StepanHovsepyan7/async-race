@@ -67,7 +67,6 @@ export function useEngineActions() {
         }
       }
 
-      // safe return: if data is missing, default to stopped
       return {
         status: engineStatusRsp.data?.status ?? EngineStatus.stopped
       };
