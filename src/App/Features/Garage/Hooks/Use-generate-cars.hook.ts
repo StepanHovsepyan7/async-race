@@ -1,15 +1,15 @@
-
-import { carModels } from "../../../../lib/constants";
 import { useCallback } from "react";
-import useGarageActions from "./Use-garage-actions";
 import useCars from "./Use-cars-hook";
+import useGarageActions from "./Use-garage-actions";
+import { carModels } from "../../../..//lib/constants";
+
 
 export default function useGenerateCars() {
-  const cars = generateRandomCars();
-
   const { createCar } = useGarageActions();
   const { reloadOnCreate } = useCars();
+
   const generateCars = useCallback(async () => {
+    const cars = generateRandomCars();
     const actions = cars.map(car =>
       createCar({
         name: car.name,
@@ -23,7 +23,7 @@ export default function useGenerateCars() {
     if (!isThereError) {
       reloadOnCreate();
     }
-  }, [cars, createCar, reloadOnCreate]);
+  }, [createCar, reloadOnCreate]);
 
   return { generateCars };
 }
@@ -40,16 +40,15 @@ const getRandomColor = (): string => {
   }
   return color;
 };
+
 const generateRandomCars = () => {
   const cars = [];
-
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= 20; i++) {
     const car = {
       name: getRandomCarName(),
       color: getRandomColor()
     };
     cars.push(car);
   }
-
   return cars;
 };
