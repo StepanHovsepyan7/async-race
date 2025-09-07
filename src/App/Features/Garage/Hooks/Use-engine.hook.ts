@@ -1,4 +1,3 @@
-
 import { useCallback, useState } from "react";
 import useEngineResponse from "./Use-engine-response.hook";
 import useGarageStore from "../Store/Usa-garage-store";
@@ -17,17 +16,33 @@ export function useEngineActions() {
   const [loading, setLoading] = useState(false);
 
   const updateCarEngine = useCallback(
-    async ({ id, status, reset }: { id: number; status: EngineStatus.started | EngineStatus.stopped; reset?: boolean }) => {
+    async ({
+      id,
+      status,
+      reset
+    }: {
+      id: number;
+      status: EngineStatus.started | EngineStatus.stopped;
+      reset?: boolean;
+    }) => {
       const engineStatusRsp = await patchCarEngine({
         id,
         status,
-        callbacks: { beforeAPICall: () => setLoading(true), afterAPICall: () => setLoading(false) }
+        callbacks: {
+          beforeAPICall: () => setLoading(true),
+          afterAPICall: () => setLoading(false)
+        }
       });
+
       if (engineStatusRsp.error) {
         setError(engineStatusRsp.error.message);
       }
 
-      updateCarEngineInStore({ id, engine: engineStatusRsp.data! });
+      // only update if data exists
+      if (engineStatusRsp.data) {
+        updateCarEngineInStore({ id, engine: engineStatusRsp.data });
+      }
+
       if (reset) {
         updateCar({ id, car: { position: 0, condition: CarCondition.running } });
       }
@@ -35,8 +50,12 @@ export function useEngineActions() {
       if (engineStatusRsp.data && status === EngineStatus.started) {
         const engineRsp = await patchEngineStatus({
           id,
-          callbacks: { beforeAPICall: () => setLoading(true), afterAPICall: () => setLoading(false) }
+          callbacks: {
+            beforeAPICall: () => setLoading(true),
+            afterAPICall: () => setLoading(false)
+          }
         });
+
         if (engineRsp.error) {
           setError(engineRsp.error.message);
           updateCar({ id, car: { condition: CarCondition.broken } });
@@ -47,9 +66,12 @@ export function useEngineActions() {
           return { status: EngineStatus.drive };
         }
       }
-      return { status: engineStatusRsp.data!.status };
-    },
 
+      // safe return: if data is missing, default to stopped
+      return {
+        status: engineStatusRsp.data?.status ?? EngineStatus.stopped
+      };
+    },
     [patchCarEngine, setLoading, setError, updateCarEngineInStore, patchEngineStatus, updateCarStatus, updateCar]
   );
 
