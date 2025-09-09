@@ -13,7 +13,7 @@ type UseApi<T> = {
   success: boolean;
 };
 
-const API_URL = process.env.REACT_APP_API_URL || "";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
 export default class ApiSlice {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   static baseURL: string = API_URL;
