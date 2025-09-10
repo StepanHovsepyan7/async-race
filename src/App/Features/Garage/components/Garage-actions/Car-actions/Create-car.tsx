@@ -34,7 +34,7 @@ function CreateCar({onClose}:Props){
       </div>
       <div className="flex flex-row justify-between">
         <Button disabled={!isFieldsFilled} onClick={submit}>
-          {loading ? "Loading..." : "Update"}
+          {loading ? "Loading..." : "Create"}
         </Button>
         <Button onClick={onClose}>Cancel</Button>
       </div>

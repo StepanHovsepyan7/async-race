@@ -4,3 +4,7 @@ body{
 button{
     cursor: pointer;
 }
+
+.title{
+    text-shadow: #FFD700 4px 4px 6px;
+}
