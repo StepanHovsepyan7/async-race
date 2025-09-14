@@ -3,7 +3,6 @@ import { EngineStatus } from "../../../../api/Slices/engine/types";
 import { CarCondition } from "../../../../api/Slices/garage/types";
 import { useCallback, useEffect, useRef } from "react";
 
-
 const increaseSpeed = 2;
 const divider = 1000;
 const nonEmptyInteger = 0;
