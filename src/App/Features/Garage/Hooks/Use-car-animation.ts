@@ -1,4 +1,3 @@
-
 import { EngineStatus } from "../../../../api/Slices/engine/types";
 import { CarCondition } from "../../../../api/Slices/garage/types";
 import { useCallback, useEffect, useRef } from "react";
@@ -28,6 +27,7 @@ export default function useCarAnimation({
   const carRef = useRef<HTMLDivElement>(null);
   const roadLength = useRef<number>(nonEmptyInteger);
   const isCarStarted = useRef(false);
+  const startTimeRef = useRef<number | null>(null); // Track animation start time
   const animate = useCallback(
     (time: number) => {
       if (previousTimeRef.current !== null && condition === CarCondition.running) {
@@ -40,8 +40,9 @@ export default function useCarAnimation({
         positionRef.current = newPosition >= roadLength.current ? roadLength.current : newPosition;
 
         if (positionRef.current >= roadLength.current) {
-          const timeInSec = time / divider;
-          onReachTheEnd(positionRef.current, +timeInSec.toFixed(1));
+          // Use elapsed time since animation started
+          const elapsed = startTimeRef.current !== null ? (time - startTimeRef.current) / divider : 0;
+          onReachTheEnd(positionRef.current, +elapsed.toFixed(1));
           return;
         }
         if (carRef.current) {
@@ -77,15 +78,16 @@ export default function useCarAnimation({
 
     window.addEventListener("resize", handleResize);
 
-    // Start or stop the animation based on the status
     if (status !== EngineStatus.stopped) {
       previousTimeRef.current = performance.now();
+      if (positionRef.current === initialPosition) {
+        startTimeRef.current = previousTimeRef.current;
+      }
       animationId.current = requestAnimationFrame(animate);
       if (!isCarStarted.current) {
         handlePosition(1);
         isCarStarted.current = true;
       }
-      // just for knowing the car is started
     } else if (animationId.current) {
       if (condition === CarCondition.broken) {
         handlePosition(positionRef.current);
