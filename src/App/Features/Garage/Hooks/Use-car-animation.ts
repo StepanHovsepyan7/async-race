@@ -65,6 +65,10 @@ export default function useCarAnimation({
   }, []);
 
   useEffect(() => {
+    if (carRef.current) {
+      carRef.current.style.willChange = "transform";
+      carRef.current.style.transition = "transform 0.1s linear";
+    }
     if (carRef.current && carRef.current.parentElement) {
       positionRef.current = initialPosition;
       carRef.current.style.transform = `translateX(${positionRef.current}px)`;
